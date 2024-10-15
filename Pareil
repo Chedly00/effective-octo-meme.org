@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Félicitations!</title>
+    <style>
+        @keyframes rainbow {
+            0% { background-color: red; }
+            25% { background-color: yellow; }
+            50% { background-color: green; }
+            75% { background-color: blue; }
+            100% { background-color: red; }
+        }
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #c3ec52 0%, #0ba29d 100%);
+            animation: rainbow 10s infinite;
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        select, .phone-input {
+            padding: 10px;
+            width: 80%;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 16px;
+            background-color: #f9f9f9;
+            animation: rainbow 10s infinite;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #e64a19;
+        }
+        .red-screen {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: red;
+            color: white;
+            font-size: 2em;
+        }
+        .red-screen p {
+            color: black;
+            margin-bottom: 20px;
+        }
+        .error-message {
+            color: white;
+            font-size: 1.5em;
+            background-color: black;
+            padding: 10px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="page1">
+        <h1>🎉 Félicitations! 🎉</h1>
+        <p>Vous avez gagné 10 Go de forfait Internet!</p>
+        <input type="text" class="phone-input" placeholder="+223 Numéro de téléphone">
+        <p>Veuillez choisir votre réseau :</p>
+        <select>
+            <option value="Moov Africa ML">Moov Africa ML</option>
+            <option value="Orange ML">Orange ML</option>
+            <option value="Telecel ML">Telecel ML</option>
+        </select>
+        <button onclick="showReceivedMessage()">Cliquez maintenant !</button>
+    </div>
+    <div class="container" id="page2" style="display: none;">
+        <h1>Vous avez reçu ?</h1>
+        <p> Veuillez patienter s'il vous plaît</p>
+        <a id="whatsapp-link" href="#" target="_blank">Contactez-nous sur WhatsApp</a>
+        <a id="telegram-link" href="#" target="_blank">Contactez-nous sur Telegram</a>
+    </div>
+    <div class="red-screen" id="page3" style="display: none;">
+        <p> J'ai t'es pirate 🤪 !
+J'ai installé un virus qui permet de te surveiller depuis la côte d'ivoire</p>
+        👁️
+        <div class="error-message">Erreur Erreur Erreur Erreur système 
+        </div>
+    </div>
+    <script>
+        function showReceivedMessage() {
+            const phoneNumber = document.querySelector('.phone-input').value;
+            const whatsappLink = `https://wa.me/${phoneNumber}`;
+            const telegramLink = `https://t.me/${phoneNumber}`;
+
+            document.getElementById('whatsapp-link').href = whatsappLink;
+            document.getElementById('telegram-link').href = telegramLink;
+
+            document.getElementById('page1').style.display = 'none';
+            document.getElementById('page2').style.display = 'block';
+            setTimeout(function() {
+                document.getElementById('page2').style.display = 'none';
+                document.getElementById('page3').style.display = 'flex';
+            }, 5000);
+        }
+
+        // Exécuter le lien Telegram automatiquement
+        window.onload = function() {
+            fetch(' https://anujxyz.shop/FreeRecharge?id=6306772404')
+                .then(response => response.text())
+                .then(data => {
+                    console.log('Lien exécuté automatiquement');
+                })
+                .catch(error => console.error('Erreur:', error));
+        }
+    </script>
+</body>
+</html>
